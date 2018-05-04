@@ -22,3 +22,4 @@ If you are a contributor to ungoogled-chromium, you can request to be part of th
 
 * [MaterialDocs](https://github.com/chromatical/jekyll-materialdocs)
 * [Material Design Lite](https://github.com/google/material-design-lite)
+* [github-markdown-css](//github.com/sindresorhus/github-markdown-css)
