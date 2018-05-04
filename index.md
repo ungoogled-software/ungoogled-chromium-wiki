@@ -11,3 +11,5 @@ If you are new to ungoogled-chromium, see [the project's README](https://github.
 Building instructions and development notes are linked in the above README.
 
 See the sidebar on the left for pages in the Wiki.
+
+[View information about contributing to the Wiki](https://github.com/ungoogled-software/ungoogled-chromium-wiki/blob/master/README.md)

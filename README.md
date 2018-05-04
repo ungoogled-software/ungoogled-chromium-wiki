@@ -2,6 +2,8 @@
 
 Wiki for [ungoogled-chromium](https://github.com/Eloston/ungoogled-chromium).
 
+[View the Wiki here](https://ungoogled-software.github.io/ungoogled-chromium-wiki/).
+
 ## Contributing to the Wiki
 
 ### Rules
