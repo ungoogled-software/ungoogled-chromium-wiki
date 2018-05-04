@@ -1,4 +1,8 @@
-# Frequently Asked Questions
+---
+layout: page
+title: Frequently Asked Questions
+weight: 0
+---
 
 * [Can I install extensions from the Chrome Webstore?](#can-i-install-extensions-from-the-chrome-webstore)
 * [Do plugins work?](#do-plugins-work)

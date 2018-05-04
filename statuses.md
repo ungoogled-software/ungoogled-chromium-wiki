@@ -1,3 +1,9 @@
+---
+layout: page
+title: Statuses
+weight: 0
+---
+
 This page contains development and support statuses for various components.
 
 **PLEASE NOTE**: All information in this document is for version **66.0.3359.139-1**, unless otherwise indicated.
