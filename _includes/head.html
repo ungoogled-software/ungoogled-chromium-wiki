@@ -1,6 +1,6 @@
 <meta charset="utf-8"/>
 <script defer src="{{ '/assets/mdl/material.min.js' | absolute_url }}"></script>
-<link rel="stylesheet" href="{{ '/assets/google-fonts/material_icons.css' | absolute_url }}">
+<link rel="stylesheet" href="{{ site.baseurl }}{% link assets/google-fonts/material_icons.css %}">
 {% assign mdl_colors = "blue-indigo" %}
 
 {% if site.mdl_colors %}
@@ -10,6 +10,6 @@
 {% if page.mdl_colors %}
   {% assign mdl_colors = page.mdl_colors %}
 {% endif %}
-<link rel="stylesheet" href="{{ '/assets/mdl/material.indigo-blue.min.css' | absolute_url }}" />
+<link rel="stylesheet" href="{{ '/assets/mdl/material.blue-indigo.min.css' | absolute_url }}" />
 <link rel="stylesheet" href="{{ '/assets/jekyll-materialdocs.css' | absolute_url }}">
 <title>{{ page.title }} | {{ site.title }}</title>

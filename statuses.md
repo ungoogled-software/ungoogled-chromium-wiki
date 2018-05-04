@@ -1,7 +1,8 @@
 ---
 layout: page
 title: Statuses
-weight: 0
+weight: 1
+permalink: /statuses
 ---
 
 This page contains development and support statuses for various components.
