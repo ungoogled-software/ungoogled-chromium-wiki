@@ -1,0 +1,23 @@
+{% assign sorted_pages = site.pages | sort: 'weight'%}
+{% for node in sorted_pages %}
+  {% if node.menu != false %}
+    {% if node.menu or node.title %}
+      {% unless node.parent %}
+        <a class="mdl-navigation__link parent {% if node.url == page.url or page.parent == node.path %}is-active{% endif %}" href="{{ node.url | absolute_url }}">{% if node.menu %}{{ node.menu }}{% else %}{{ node.title }}{% endif %}</a>
+        {% if site.menu_style != 'dropdown' or node.url == page.url or page.parent == node.path %}
+          {% for child in sorted_pages %}
+            {% if child.menu != false %}
+              {% if child.menu or child.title %}
+                {% if child.parent %}
+                  {% if child.parent == node.path %}
+                    <a class="mdl-navigation__link child {% if child.url == page.url %}is-active{% endif %}" href="{{ child.url | absolute_url }}">{% if child.menu %}{{ child.menu }}{% else %}{{ child.title }}{% endif %}</a>
+                  {% endif %}
+                {% endif %}
+              {% endif %}
+            {% endif %}
+          {% endfor %}
+        {% endif %}
+      {% endunless %}
+    {% endif %}
+  {% endif %}
+{% endfor %}
