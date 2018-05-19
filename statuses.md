@@ -7,7 +7,7 @@ permalink: /statuses
 
 This page contains development and support statuses for various components.
 
-**PLEASE NOTE**: All information in this document is for version **66.0.3359.139-1**, unless otherwise indicated.
+**PLEASE NOTE**: All information in this document is for version **66.0.3359.181-1**, unless otherwise indicated.
 
 Table of Contents:
 
@@ -32,10 +32,10 @@ Brief statuses of base bundles:
 * `archlinux` (for Arch Linux) - **Untested**
 * `debian_stretch` (for Debian 9.0) - **Working**
 * `ubuntu_bionic` (for Ubuntu 18.04) - **Untested**
-* `linux_portable` (for any Linux system) - **Working**
+* `linux_portable` (for any Linux system) - **Untested**
     * NOTE: This config type is not optimized for any specific Linux distribution. It is designed for maximum compatibility and portability, unlike config types for specific distributions.
 * `macos` (for macOS) - **Working**
-* `opensuse` (for openSUSE) - **Untested**
+* `opensuse` (for openSUSE) - **Working**
 * `windows` (for Microsoft Windows) - **Untested**
 
 ## Packaging types
