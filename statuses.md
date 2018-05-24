@@ -31,7 +31,7 @@ Brief statuses of base bundles:
 
 * `archlinux` (for Arch Linux) - **Untested**
 * `debian_stretch` (for Debian 9.0) - **Working**
-* `ubuntu_bionic` (for Ubuntu 18.04) - **Untested**
+* `ubuntu_bionic` (for Ubuntu 18.04) - **Working**
 * `linux_portable` (for any Linux system) - **Untested**
     * NOTE: This config type is not optimized for any specific Linux distribution. It is designed for maximum compatibility and portability, unlike config types for specific distributions.
 * `macos` (for macOS) - **Working**
