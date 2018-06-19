@@ -40,6 +40,8 @@ This URL can be used directly by CLI utilities like `curl` and `wget`, but it ca
 
 ### Installing the CRX file
 
+There are several methods to install CRX file:
+
 1. **Always install extension MIME type requests**
 
     Change the flag `chrome://flags/#extension-mime-request-handling` to `Always prompt for install`. Then when using the CRX URL from the omnibox or the custom search engine, the browser will prompt for installation.
