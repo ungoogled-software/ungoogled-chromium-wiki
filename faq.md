@@ -49,6 +49,7 @@ There are several methods to install CRX file:
 1. **Drag and drop**
 
     **NOTE**: There are certain circumstances where this method fails on KDE Plasma.
+
     **NOTE for Chromium 67 and newer**: If the Material Design page is used (which has been default before 67), "Developer mode" of `chrome://extensions/` (a switch at the top right corner) must be enabled for drag and drop to function. (Discovered in [#423](https://github.com/Eloston/ungoogled-chromium/issues/423))
 
     Steps:
