@@ -20,35 +20,44 @@ permalink: /faq
 
 ## Can I install extensions from the Chrome Webstore?
 
-Yes, but not via the web interface. Adapted from [inox-patchset](https://raw.githubusercontent.com/gcarq/inox-patchset/master/README.md):
+Yes, but not via the Chrome Webstore interface. Instead, the URL used by the Webstore to download CRX files (Chrome/Chromium extension packages, used by all extensions in the Chrome Webstore) can be used.
 
-The built-in Chrome Webstore feature does not work. However, they can be downloaded manually via the following URL template:
+### Downloading the CRX file
+
+CRX files are downloaded using the following template CRX URL:
 
     https://clients2.google.com/service/update2/crx?response=redirect&prodversion=[VERSION]&x=id%3D[EXTENSION_ID]%26installsource%3Dondemand%26uc
 
-To use the template, replace `[EXTENSION_ID]` with the extension-id from the Chrome Web Store, and `[VERSION]` with the browser's version. For example, `cjpalhdlnbpafiamejdnhcphjbkeiagm` is the extension id of uBlock Origin, and `63.0` is for the 63.0.x.x browser versions.
+Where:
 
-There are several installation methods deriving from this URL:
+* `[EXTENSION_ID]` is the extension ID from the Chrome Webstore. This can be retrieved from the Chrome Webstore URL for that extension, which has the form `https://chrome.google.com/webstore/detail/[...]/[EXTENSION_ID]`
+* `[VERSION]` is the Chromium browser version.
 
-1. **Custom Search Engine (Preferred)**
+For example, `cjpalhdlnbpafiamejdnhcphjbkeiagm` is the extension id of uBlock Origin, and `67.0` is for the 67.0.x.x browser versions.
 
-    Create a custom search engine under `chrome://settings/searchEngines` with the manual download URL above after replacing `[EXTENSION_ID]` with `%s`. Then, configure `chrome://flags/#extension-mime-request-handling` to `Always prompt for install`.
+This URL can be used directly by CLI utilities like `curl` and `wget`, but it can also be used via a custom search engine.
+* To set up the custom search engine, create a new entry in `chrome://settings/searchEngines`, using the template CRX URL as the search URL above after replacing `[EXTENSION_ID]` with `%s`. Then, set `chrome://flags/#extension-mime-request-handling` to `Download as regular file`.
 
-    To use it, go to a Chrome Webstore extension page. The page should have the a URL of the form `https://chrome.google.com/webstore/detail/[...]/[EXTENSION_ID]`. Use the custom search engine against `[EXTENSION_ID]`, and the browser should request permission for installation.
+### Installing the CRX file
 
-2. **Drag and drop**
+1. **Always install extension MIME type requests**
+
+    Change the flag `chrome://flags/#extension-mime-request-handling` to `Always prompt for install`. Then when using the CRX URL from the omnibox or the custom search engine, the browser will prompt for installation.
+
+1. **Drag and drop**
+
+    **NOTE**: There are certain circumstances where this method fails on KDE Plasma.
+    **NOTE for Chromium 67 and newer**: If the Material Design page is used (which has been default before 67), "Developer mode" of `chrome://extensions/` (a switch at the top right corner) must be enabled for drag and drop to function. (Discovered in [#423](https://github.com/Eloston/ungoogled-chromium/issues/423))
 
     Steps:
 
-    1. Download the CRX file. One download method is to create a custom search engine like the above method, but set `chrome://flags/#extension-mime-request-handling` to `Download as regular file`.
+    1. Have the CRX downloaded to your file system
     2. Open `chrome://extensions`
-    3. Drag-and-drop the CRX from a file browser into the page of the extensions tab. While dragging over the page, it should state to drop the file to install it.
+    3. Drag-and-drop the CRX from a file browser into the page of the extensions tab. While dragging over the page, it should state to drop the file to install.
 
-    This can be used with the above method when `chrome://flags/#extension-mime-request-handling` is set to `Download as regular file`.
+2. **External Extension Descriptor (Linux systems only)**
 
-    **NOTE**: There are certain circumstances where this method fails on KDE Plasma.
-
-3. **External Extension Descriptor (Linux systems only)**
+    This example assumes the CRX is downloaded as `/home/share/extension_1_0_0.crx`. Modify the path as necessary.
 
     To install an extension with ID `aaaaaaaaaabbbbbbbbbbcccccccccc`, create the file
 
@@ -62,6 +71,8 @@ There are several installation methods deriving from this URL:
     }
     ```
     After restarting the browser, the extension should be loaded automatically.
+
+*This FAQ answer was adapted and extended from [Inox browser](https://raw.githubusercontent.com/gcarq/inox-patchset/master/README.md).*
 
 ## Do plugins work?
 
