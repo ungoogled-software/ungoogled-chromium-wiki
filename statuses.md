@@ -5,50 +5,27 @@ weight: 1
 permalink: /statuses
 ---
 
-This page contains development and support statuses for various components.
+# Determining platform status
 
-**PLEASE NOTE**: All information in this document is for version **66.0.3359.181-1**, unless otherwise indicated.
+Essentially, platforms are broken up into one or more configurations, e.g. each major version for a Linux distribution can be a distinct configuration, or *config bundle*. Thus, platform status can be determined by the tags for which a config bundle works.
 
-Table of Contents:
+Platform status can be supplemented with the status of [binaries on the downloads page](https://ungoogled-software.github.io/ungoogled-chromium-binaries/). Each binary can be traced back to the corresponding config bundle using the building instructions.
 
-* [Platform support](#platform-support)
-* [Base config bundles](#base-config-bundles)
-* [Packaging types](#packaging-types)
+# Latest testing tags
 
-## Platform support
+Tags that are ready for testing are listed in the following table. For tags ready for general use, see the downloads page.
 
-Official platform support is mostly associated with base config bundles. As such, each base bundle is labeled with their target platforms.
+**Note for contributors**: Please update the table whenever a config bundle is updated.
 
-Packaging types are different ways to create distributable packages of build outputs.
+In the event that the following table is inconsistent with the downloads page, pick the information with the newer tags.
 
-For more details, see [DESIGN.md](//github.com/Eloston/ungoogled-chromium/blob/develop/DESIGN.md)
-
-## Base config bundles
-
-(These are directories in `resources/config_bundles`)
-
-Brief statuses of base bundles:
-
-* `archlinux` (for Arch Linux) - **Untested**
-* `debian_stretch` (for Debian 9.0) - **Working**
-* `ubuntu_bionic` (for Ubuntu 18.04) - **Working**
-* `linux_portable` (for any Linux system) - **Untested**
-    * NOTE: This config type is not optimized for any specific Linux distribution. It is designed for maximum compatibility and portability, unlike config types for specific distributions.
-* `macos` (for macOS) - **Working**
-* `opensuse` (for openSUSE) - **Working**
-* `windows` (for Microsoft Windows) - **Untested**
-
-## Packaging types
-
-(These are files in `resources/packaging`)
-
-Some notes about the status of packaging types (see explanations in [DESIGN.md](//github.com/Eloston/ungoogled-chromium/blob/develop/DESIGN.md)):
-
-* `archlinux` - **Working**
-* `debian` - Flavor support statuses:
-    * `minimal` - **Working**
-    * `stretch` - **Working**
-    * `buster` - **Untested**, but it won't be useful until a Debian buster base bundle is added.
-* `linux_simple` - **Working**
-* `macos` - **Working**
-* `windows` - **Working**
+**Config bundle** | **Name/Target** | **Tag** | **Notes**
+----------------- | --------------- | ------- | ---------
+`archlinux` | Arch Linux | 67.0.3396.87-2
+`debian_buster` | Debian 10 (buster) | 67.0.3396.87-2
+`debian_stretch` | Debian 9 (stretch) | 67.0.3396.87-2
+`linux_portable` | Portable Linux | 67.0.3396.87-2
+`macos` | macOS | 67.0.3396.87-2
+`opensuse` | openSUSE | 67.0.3396.87-2
+`ubuntu_bionic` | Ubuntu 18.04 (bionic) | 67.0.3396.87-2
+`windows` | Microsoft Windows | 67.0.3396.87-1
