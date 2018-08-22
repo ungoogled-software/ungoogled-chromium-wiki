@@ -21,11 +21,11 @@ In the event that the following table is inconsistent with the downloads page, p
 
 **Config bundle** | **Name/Target** | **Tag** | **Notes**
 ----------------- | --------------- | ------- | ---------
-`archlinux` | Arch Linux | 67.0.3396.87-2
-`debian_buster` | Debian 10 (buster) | 67.0.3396.87-3
-`debian_stretch` | Debian 9 (stretch) | 67.0.3396.87-3
-`linux_portable` | Portable Linux | 67.0.3396.87-2
-`macos` | macOS | 67.0.3396.87-3
+`archlinux` | Arch Linux | 68.0.3440.106-1
+`debian_buster` | Debian 10 (buster) | 68.0.3440.106-1
+`debian_stretch` | Debian 9 (stretch) | 68.0.3440.106-1
+`linux_portable` | Portable Linux | 68.0.3440.106-1
+`macos` | macOS | 68.0.3440.106-1
 `opensuse` | openSUSE | 67.0.3396.87-2
-`ubuntu_bionic` | Ubuntu 18.04 (bionic) | 67.0.3396.87-3
+`ubuntu_bionic` | Ubuntu 18.04 (bionic) | 68.0.3440.106-1
 `windows` | Microsoft Windows | 67.0.3396.87-3
