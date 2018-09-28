@@ -26,14 +26,14 @@ Yes, but not via the Chrome Webstore interface. Instead, the URL used by the Web
 
 CRX files are downloaded using the following template CRX URL:
 
-    https://clients2.google.com/service/update2/crx?response=redirect&prodversion=[VERSION]&x=id%3D[EXTENSION_ID]%26installsource%3Dondemand%26uc
+    https://clients2.google.com/service/update2/crx?response=redirect&acceptformat=crx2,crx3&prodversion=[VERSION]&x=id%3D[EXTENSION_ID]%26installsource%3Dondemand%26uc
 
 Where:
 
 * `[EXTENSION_ID]` is the extension ID from the Chrome Webstore. This can be retrieved from the Chrome Webstore URL for that extension, which has the form `https://chrome.google.com/webstore/detail/[...]/[EXTENSION_ID]`
 * `[VERSION]` is the Chromium browser version.
 
-For example, `cjpalhdlnbpafiamejdnhcphjbkeiagm` is the extension id of uBlock Origin, and `67.0` is for the 67.0.x.x browser versions.
+For example, `cjpalhdlnbpafiamejdnhcphjbkeiagm` is the extension id of uBlock Origin, and `69.0` is for the 69.0.x.x browser versions.
 
 This URL can be used directly by CLI utilities like `curl` and `wget`, but it can also be used via a custom search engine.
 * To set up the custom search engine, create a new entry in `chrome://settings/searchEngines`, using the template CRX URL as the search URL above after replacing `[EXTENSION_ID]` with `%s`. Then, set `chrome://flags/#extension-mime-request-handling` to `Download as regular file`.
