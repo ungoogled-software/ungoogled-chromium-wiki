@@ -28,7 +28,10 @@
       <main class="mdl-layout__content">
         <div class="page-content">
           <div class="markdown-body">
-            {% include toc.html html=content %}
+            {% unless page.disable_toc %}
+              <p><b>Table of Contents</b></p>
+              {% include toc.html html=content %}
+            {% endunless %}
             {{ content }}
           </div>
         </div>

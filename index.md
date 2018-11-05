@@ -2,6 +2,7 @@
 layout: page
 title: Home
 weight: 0
+disable_toc: true
 ---
 
 Welcome to the ungoogled-chromium wiki!
