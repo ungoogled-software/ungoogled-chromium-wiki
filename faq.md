@@ -6,18 +6,6 @@ weight: 2
 permalink: /faq
 ---
 
-**Table of Contents**
-
-* [Can I install extensions from the Chrome Webstore?](#can-i-install-extensions-from-the-chrome-webstore)
-* [Do plugins work?](#do-plugins-work)
-* [Why are there URLs with the `qjz9zk` domain in them? Why use domain substitution?](#why-are-there-urls-with-the--qjz9zk--domain-in-them--why-use-domain-substitution)
-* [Does domain substitution break the HSTS preload list?](#does-domain-substitution-break-the-hsts-preload-list)
-* [Why is Safe Browsing disabled?](#why-is-safe-browsing-disabled)
-* [How do I install Flash player?](#how-do-i-install-flash-player)
-* [How do I install Widevine CDM?](#how-do-i-install-widevine-cdm)
-* [How do I get the Namespace Sandbox to work on Linux?](#how-do-i-get-the-namespace-sandbox-to-work-on-linux)
-* [How to get FIDO U2F security keys to work in Google sign in?](#how-to-get-fido-u2f-security-keys-to-work-in-google-sign-in)
-
 ## Can I install extensions from the Chrome Webstore?
 
 Yes, but not via the Chrome Webstore interface. Instead, the URL used by the Webstore to download CRX files (Chrome/Chromium extension packages, used by all extensions in the Chrome Webstore) can be used.
