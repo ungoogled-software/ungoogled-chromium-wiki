@@ -6,11 +6,13 @@ weight: 3
 permalink: /user-resources
 ---
 
+# Introduction
+
 This page collects information about extensions and options for Chromium that may be useful for users.
 
 Please submit a [PR to ungoogled-chromium-wiki](//github.com/ungoogled-software/ungoogled-chromium-wiki/pulls) if you want to contribute.
 
-# Extensions
+# Useful Extensions
 
 *TODO: bulleted list of extensions, each with a short explanation of their purpose, benefits, and potential drawbacks*
 
@@ -22,7 +24,7 @@ Like JavaScript, WebAssembly is another potential attack vector. See [#578](//gi
 
 See [stevenspringett/disable-webassembly](//github.com/stevespringett/disable-webassembly) for instructions on disabling WebAssembly.
 
-# Disable weak cipher suites
+# Disable Weak SSL Cipher Suites
 
 Disable weak SSL cipher suites to prevent usage in SSL-encrypted traffic like HTTPS.
 
