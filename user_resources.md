@@ -28,7 +28,7 @@ See [stevenspringett/disable-webassembly](//github.com/stevespringett/disable-we
 
 Disable weak SSL cipher suites to prevent usage in SSL-encrypted traffic like HTTPS.
 
-The command-line flag is `--cipher-suite-blacklist`, with a comma-delimited list of cipher suites in hexadecimal. Example:
+The command-line flag is `--cipher-suite-blacklist`, with a comma-delimited list of cipher suites in hexadecimal. There must be exactly four hexadecimal digits per cipher suite. Example:
 
 ```
 chromium --cipher-suite-blacklist=0x000a,0x009c,0x009d,0x002f,0x0035
