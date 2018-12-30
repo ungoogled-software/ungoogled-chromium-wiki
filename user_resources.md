@@ -33,3 +33,40 @@ The command-line flag is `--cipher-suite-blacklist`, with a comma-delimited list
 ```
 chromium --cipher-suite-blacklist=0x000a,0x009c,0x009d,0x002f,0x0035
 ```
+
+
+# Disable Media Router
+
+Disabling Media Router prevents the browser from sending UDP broadcasts. (NOTE: Broadcasts happen even if the media router extension is disabled). This can be achieved by setting the policies:
+
+**Linux** 
+
+Create or add the following JSON content to `/etc/chromium/policies/managed/policies.json`:
+
+```json
+{
+  "EnableMediaRouter": false
+}
+```
+
+Here is an example of `policies.json` with more configuration settings:
+
+```json
+{
+  "EnableMediaRouter": false,
+  "DefaultWebUsbGuardSetting": 2,
+  "DefaultWebBluetoothGuardSetting": 2,
+  "HomepageLocation": "http://site.com",
+  "NativeMessagingUserLevelHosts": false,
+  "WPADQuickCheckEnabled": false,
+  "BackgroundModeEnabled": false
+}
+```
+
+**macOS**
+
+Consult the documentation on setting policies [here](https://www.chromium.org/administrators/configuring-other-preferences). Then, set `"EnableMediaRouter": false`.
+
+**Windows** 
+
+Consult the documentation [here](https://www.chromium.org/administrators/configuring-policy-for-extensions) for configuring policies. Then, set `"EnableMediaRouter": false`.
