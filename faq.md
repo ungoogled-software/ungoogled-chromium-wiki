@@ -6,7 +6,7 @@ weight: 2
 permalink: /faq
 ---
 
-## Can I install extensions from the Chrome Webstore?
+## Can I install extensions or themes from the Chrome Webstore?
 
 Yes, but not via the Chrome Webstore interface. Instead, the URL used by the Webstore to download CRX files (Chrome/Chromium extension packages, used by all extensions in the Chrome Webstore) can be used.
 
