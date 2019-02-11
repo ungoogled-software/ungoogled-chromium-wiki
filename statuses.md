@@ -21,7 +21,7 @@ In the event that the following table is inconsistent with the downloads page, p
 
 **Config bundle** | **Name/Target** | **Tag** | **Notes**
 ----------------- | --------------- | ------- | ---------
-`archlinux` | Arch Linux | 71.0.3578.98-2
+`archlinux` | Arch Linux | 72.0.3626.96-1
 `debian_buster` | Debian 10 (buster) | 71.0.3578.98-2
 `debian_stretch` | Debian 9 (stretch) | 71.0.3578.98-2
 `linux_portable` | Portable Linux | 71.0.3578.98-2
