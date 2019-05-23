@@ -10,6 +10,8 @@ permalink: /faq
 
 Yes, but not via the Chrome Webstore interface. Instead, the URL used by the Webstore to download CRX files (Chrome/Chromium extension packages, used by all extensions in the Chrome Webstore) can be used.
 
+The following sections describe a method using built-in functionality.
+
 ### Downloading the CRX file
 
 CRX files are downloaded using the following template CRX URL:
@@ -64,6 +66,10 @@ There are several methods to install CRX file:
     After restarting the browser, the extension should be loaded automatically.
 
 *This FAQ answer was adapted and extended from [Inox browser](https://raw.githubusercontent.com/gcarq/inox-patchset/master/README.md).*
+
+## Will extensions auto-update?
+
+Not at this time. There is help needed to implement this feature in [Issue #285](https://github.com/Eloston/ungoogled-chromium/issues/285)
 
 ## Do plugins work?
 
