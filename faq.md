@@ -141,6 +141,6 @@ Enable the kernel option `unprivileged_userns_clone`
 
 Google sign in uses a specific extension to access the security key's information. You'll need to install [this extension](https://chrome.google.com/webstore/detail/gnubbyd/beknehfpfkghjoafdifaflglpjkojoco) to make this function. After installation you might need to restart your computer to make it work.
 
-## I have a problem fixing ungoogled-chromium
+## I have a problem building ungoogled-chromium
 
 See if the [Building FAQ](https://github.com/Eloston/ungoogled-chromium/blob/master/docs/building.md#building-faq) can address your problem. If not, check other resources in the [Support document](https://github.com/Eloston/ungoogled-chromium/blob/master/SUPPORT.md).
