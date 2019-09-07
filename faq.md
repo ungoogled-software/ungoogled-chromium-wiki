@@ -141,6 +141,19 @@ Enable the kernel option `unprivileged_userns_clone`
 
 Google sign in uses a specific extension to access the security key's information. You'll need to install [this extension](https://chrome.google.com/webstore/detail/gnubbyd/beknehfpfkghjoafdifaflglpjkojoco) to make this function. After installation you might need to restart your computer to make it work.
 
+## Why is my microphone not working?
+
+There may be multiple causes:
+
+1. You set your preferences or the master preferences with `"audio_capture_enabled": false`.
+2. Your application uses Google's Speech API. This can be identified with an error message from Chromium such as:
+
+```
+[11883:11886:0904/222052.856218:ERROR:trk_protocol_handler.cc(17)] Blocked URL in
+                 TrkProtocolHandler:
+trk:184:https://www.9oo91e.qjz9zk/speech-api/full-duplex/v1/down?key=dummytoken&pair=52970E410A529E6C&output=pb
+```
+
 ## I have a problem building ungoogled-chromium
 
 See if the [Building FAQ](https://github.com/Eloston/ungoogled-chromium/blob/master/docs/building.md#building-faq) can address your problem. If not, check other resources in the [Support document](https://github.com/Eloston/ungoogled-chromium/blob/master/SUPPORT.md).
