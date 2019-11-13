@@ -112,8 +112,57 @@ These instructions are platform-specific.
 ### Linux
 
 1. [Download the latest Google Chrome for Linux (.deb file)](https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb)
-2. Inside `data.tar.xz`, extract `./opt/google/chrome/libwidevinecdm.so`
-3. For installed packages, extract `libwidevinecdm.so` to `/usr/lib/chromium`, where all other Chromium files should be. For portable or custom-built versions, it should be placed alongside the other Chromium files. As of version 68, `libwidevinecdm.so` can also be placed under `$HOME/.local/lib/`.
+    * [Use this link for the latest unstable version](https://dl.google.com/linux/direct/google-chrome-unstable_current_amd64.deb)
+2. Inside `data.tar.xz`, extract `./opt/google/chrome/WidevineCdm`
+3. For installed packages, extract `libwidevinecdm.so` to `/usr/lib/chromium`, where all other Chromium files should be. For portable or custom-built versions, it should be placed alongside the other Chromium files.
+
+In ungoogled-chromium-debian, you do not need to copy the entire `WidevineCdm` directory to `/usr/lib/chromium`. Instead, you can move `WidevineCdm/_platform_specific/linux_x64/libwidevinecdm.so` to `$HOME/.local/lib/`.
+
+Here is a script that can automate this. It requires Debian because of `dpkg-deb`, but it can be modified to work on any sytsem:
+
+```sh
+#!/bin/bash -eux
+# Replace with current Chromium version
+_chrome_ver=78.0.3904.97
+
+# Debian's Chromium has a patch to read libwidevinecdm.so in ~/.local/lib
+_target_dir=~/.local/lib/
+_move_type=shared_obj
+# To have it accessible by all users, uncomment the below instead
+#_target_dir=/usr/lib/chromium/WidevineCdm
+#_move_type=directory
+
+mkdir -p /tmp/chromium_widevine
+pushd /tmp/chromium_widevine
+
+# Download deb, which has corresponding Widevine version
+# Support resuming partially downloaded (or skipping re-download) with -c flag
+wget -c https://dl.google.com/linux/deb/pool/main/g/google-chrome-stable/google-chrome-stable_${_chrome_ver}-1_amd64.deb
+# Use below link for unstable Chrome versions
+#wget -c https://dl.google.com/linux/deb/pool/main/g/google-chrome-unstable/google-chrome-unstable_${_chrome_ver}-1_amd64.deb
+
+# Unpack deb
+rm -r unpack_deb || true
+mkdir unpack_deb
+dpkg-deb -R google-chrome-stable_${_chrome_ver}-1_amd64.deb unpack_deb
+
+if [[ "$_move_type" == 'shared_obj' ]]; then
+	# Move libwidevinecdm.so to target dir
+	mkdir -p $_target_dir
+	mv unpack_deb/opt/google/chrome/WidevineCdm/_platform_specific/linux_x64/libwidevinecdm.so $_target_dir
+elif [[ "$_move_type" == 'directory' ]]; then
+	# Move WidevineCdm to target dir
+	sudo rm -r $_target_dir || true
+	sudo mv unpack_deb/opt/google/chrome/WidevineCdm $_target_dir
+	sudo chown -R root:root $_target_dir
+else
+	printf 'ERROR: Unknown value for $_move_type: %s\n' "$_move_type"
+	exit 1
+fi
+
+popd
+rm -r /tmp/chromium_widevine
+```
 
 As of version 67, `libwidevinecdmadapter.so` has been deprecated, and the Debian package `ungoogled-chromium-widevine` no longer exists.
 
