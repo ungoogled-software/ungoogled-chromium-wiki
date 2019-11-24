@@ -25,8 +25,13 @@ Where:
 
 For example, `cjpalhdlnbpafiamejdnhcphjbkeiagm` is the extension id of uBlock Origin, and `69.0` is for the 69.0.x.x browser versions.
 
-This URL can be used directly by CLI utilities like `curl` and `wget`, but it can also be used via a custom search engine.
-* To set up the custom search engine, create a new entry in `chrome://settings/searchEngines`, using the template CRX URL as the search URL above after replacing `[EXTENSION_ID]` with `%s`. Then, set `chrome://flags/#extension-mime-request-handling` to `Download as regular file`.
+This URL can be accessed directly by CLI utilities like `curl` and `wget`, but it can also be accessed in two other ways:
+* Custom search engine: Create a new entry in `chrome://settings/searchEngines`, using the template CRX URL as the search URL above after replacing `[EXTENSION_ID]` with `%s`. Then, set `chrome://flags/#extension-mime-request-handling` to `Download as regular file`.
+* [Bookmarklet](https://en.wikipedia.org/wiki/Bookmarklet) (proposed in [Issue #869](https://github.com/Eloston/ungoogled-chromium/issues/869)): Add the following code as a bookmark URL, then go to the CWS extension page and click the bookmark:
+
+    ```javascript:location.href='https://clients2.google.com/service/update2/crx?response=redirect&acceptformat=crx2,crx3&prodversion='+(navigator.appVersion.match(/Chrome\/(\S+)/)[1])+'&x=id%'+'3D'+(location.pathname.split('/').pop())+'%'+'26installsource%'+'3Dondemand%'+'26uc';```
+
+	NOTE: If you get a page saying "error-invalidAppId", make sure that the extension ID is the last component of the CWS page URL.
 
 ### Installing the CRX file
 
@@ -34,9 +39,9 @@ There are several methods to install CRX file:
 
 1. **Always install extension MIME type requests**
 
-    Change the flag `chrome://flags/#extension-mime-request-handling` to `Always prompt for install`. Then when using the CRX URL from the omnibox or the custom search engine, the browser will prompt for installation.
+    Change the flag `chrome://flags/#extension-mime-request-handling` to `Always prompt for install`. Then when using the CRX URL from the omnibox, the custom search engine, or the Bookmarklet, the browser will prompt for installation.
 
-1. **Drag and drop**
+2. **Drag and drop**
 
     **NOTE**: There are certain circumstances where this method fails on KDE Plasma.
 
@@ -48,7 +53,7 @@ There are several methods to install CRX file:
     2. Open `chrome://extensions`
     3. Drag-and-drop the CRX from a file browser into the page of the extensions tab. While dragging over the page, it should state to drop the file to install.
 
-2. **External Extension Descriptor (Linux systems only)**
+3. **External Extension Descriptor (Linux systems only)**
 
     This example assumes the CRX is downloaded as `/home/share/extension_1_0_0.crx`. Modify the path as necessary.
 
