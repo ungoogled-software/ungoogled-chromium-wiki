@@ -29,9 +29,7 @@ This URL can be accessed directly by CLI utilities like `curl` and `wget`, but i
 * Custom search engine: Create a new entry in `chrome://settings/searchEngines`, using the template CRX URL as the search URL above after replacing `[EXTENSION_ID]` with `%s`. Then, set `chrome://flags/#extension-mime-request-handling` to `Download as regular file`.
 * [Bookmarklet](https://en.wikipedia.org/wiki/Bookmarklet) (proposed in [Issue #869](https://github.com/Eloston/ungoogled-chromium/issues/869)): Add the following code as a bookmark URL, then go to the CWS extension page and click the bookmark:
 
-    ```javascript:location.href='https://clients2.google.com/service/update2/crx?response=redirect&acceptformat=crx2,crx3&prodversion='+(navigator.appVersion.match(/Chrome\/(\S+)/)[1])+'&x=id%'+'3D'+(location.pathname.split('/').pop())+'%'+'26installsource%'+'3Dondemand%'+'26uc';```
-
-	NOTE: If you get a page saying "error-invalidAppId", make sure that the extension ID is the last component of the CWS page URL.
+```javascript:location.href='https://clients2.google.com/service/update2/crx?response=redirect&acceptformat=crx2,crx3&prodversion='+(navigator.appVersion.match(/Chrome\/(\S+)/)[1])+'&x=id%'+'3D'+(document.querySelector('a[href^="https://chrome.google.com/webstore/report/"]').pathname.match(/[^\/]+\/*$/)[0])+'%'+'26installsource%'+'3Dondemand%'+'26uc';```
 
 ### Installing the CRX file
 
