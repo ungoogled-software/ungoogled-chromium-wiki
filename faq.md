@@ -33,6 +33,9 @@ This URL can be accessed directly by CLI utilities like `curl` and `wget`, but i
     javascript:location.href='https://clients2.google.com/service/update2/crx?response=redirect&acceptformat=crx2,crx3&prodversion='+(navigator.appVersion.match(/Chrome\/(\S+)/)[1])+'&x=id%'+'3D'+(document.querySelector('a[href^="https://chrome.google.com/webstore/report/"]').pathname.match(/[^\/]+\/*$/)[0])+'%'+'26installsource%'+'3Dondemand%'+'26uc';
     ```
 
+*  Third-party CRX downloaders
+Another option can be using a third-party CRX downloader available on the web. You'll just need to paste the extension URL from the chrome webstore.
+
 ### Installing the CRX file
 
 There are several methods to install CRX file:
@@ -50,7 +53,7 @@ There are several methods to install CRX file:
     Steps:
 
     1. Have the CRX downloaded to your file system
-    2. Open `chrome://extensions`
+    2. Open `chrome://extensions`.  Refresh if you just enabled Developer Mode.
     3. Drag-and-drop the CRX from a file browser into the page of the extensions tab. While dragging over the page, it should state to drop the file to install.
 
 3. **External Extension Descriptor (Linux systems only)**
