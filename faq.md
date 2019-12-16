@@ -119,23 +119,25 @@ These instructions are platform-specific.
 1. [Download the latest Google Chrome for Linux (.deb file)](https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb)
     * [Use this link for the latest unstable version](https://dl.google.com/linux/direct/google-chrome-unstable_current_amd64.deb)
 2. Inside `data.tar.xz`, extract `./opt/google/chrome/WidevineCdm`
-3. For installed packages, extract `libwidevinecdm.so` to `/usr/lib/chromium`, where all other Chromium files should be. For portable or custom-built versions, it should be placed alongside the other Chromium files.
+3. Move `WidevineCdm` to `/usr/lib/chromium`, where all other Chromium files should be. For portable or custom-built versions, it should be placed alongside the other Chromium files.
 
-In ungoogled-chromium-debian, you do not need to copy the entire `WidevineCdm` directory to `/usr/lib/chromium`. Instead, you can move `WidevineCdm/_platform_specific/linux_x64/libwidevinecdm.so` to `$HOME/.local/lib/`.
+In ungoogled-chromium-debian, you can install Widevine DRM to additional locations. See `/usr/share/doc/ungoogled-chromium/README.Debian` for more details.
 
 Here is a script that can automate this. It requires Debian because of `dpkg-deb`, but it can be modified to work on any sytsem:
 
 ```sh
 #!/bin/bash -eux
 # Replace with current Chromium version
-_chrome_ver=78.0.3904.97
+_chrome_ver=79.0.3945.79
 
 # Debian's Chromium has a patch to read libwidevinecdm.so in ~/.local/lib
-_target_dir=~/.local/lib/
-_move_type=shared_obj
+# However, in 79 and newer, you must use the WidevineCdm directory instead of
+# the libwidevinecdm.so file
+_target_dir=~/.local/lib/WidevineCdm
+_move_type=user_directory
 # To have it accessible by all users, uncomment the below instead
 #_target_dir=/usr/lib/chromium/WidevineCdm
-#_move_type=directory
+#_move_type=system_directory
 
 mkdir -p /tmp/chromium_widevine
 pushd /tmp/chromium_widevine
@@ -155,8 +157,12 @@ if [[ "$_move_type" == 'shared_obj' ]]; then
 	# Move libwidevinecdm.so to target dir
 	mkdir -p $_target_dir
 	mv unpack_deb/opt/google/chrome/WidevineCdm/_platform_specific/linux_x64/libwidevinecdm.so $_target_dir
-elif [[ "$_move_type" == 'directory' ]]; then
-	# Move WidevineCdm to target dir
+elif [[ "$_move_type" == 'user_directory' ]]; then
+	# Move WidevineCdm to target dir owned by current user
+	rm -r $_target_dir || true
+	mv unpack_deb/opt/google/chrome/WidevineCdm $_target_dir
+elif [[ "$_move_type" == 'system_directory' ]]; then
+	# Move WidevineCdm to target dir in root-owned location
 	sudo rm -r $_target_dir || true
 	sudo mv unpack_deb/opt/google/chrome/WidevineCdm $_target_dir
 	sudo chown -R root:root $_target_dir
