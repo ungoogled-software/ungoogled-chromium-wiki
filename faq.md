@@ -27,14 +27,21 @@ For example, `cjpalhdlnbpafiamejdnhcphjbkeiagm` is the extension id of uBlock Or
 
 This URL can be accessed directly by CLI utilities like `curl` and `wget`, but it can also be accessed in two other ways:
 * Custom search engine: Create a new entry in `chrome://settings/searchEngines`, using the template CRX URL as the search URL above after replacing `[EXTENSION_ID]` with `%s`. Then, set `chrome://flags/#extension-mime-request-handling` to `Download as regular file`.
-* [Bookmarklet](https://en.wikipedia.org/wiki/Bookmarklet) (proposed in [Issue #869](https://github.com/Eloston/ungoogled-chromium/issues/869)): Add the following code as a bookmark URL, then go to the CWS extension page and click the bookmark:
+* [Bookmarklet](https://en.wikipedia.org/wiki/Bookmarklet) (proposed in [Issue #869](https://github.com/Eloston/ungoogled-chromium/issues/869)): Add the following code as a bookmark URL with the following steps:
+    * Go to [chrome://bookmarks/](chrome://bookmarks/)
+    * Right click anywhere to select 'Add new Bookmark'
 
-    ```javascript
-    javascript:location.href='https://clients2.google.com/service/update2/crx?response=redirect&acceptformat=crx2,crx3&prodversion='+(navigator.appVersion.match(/Chrome\/(\S+)/)[1])+'&x=id%'+'3D'+(document.querySelector('a[href^="https://chrome.google.com/webstore/report/"]').pathname.match(/[^\/]+\/*$/)[0])+'%'+'26installsource%'+'3Dondemand%'+'26uc';
-    ```
+  
+```javascript
 
-*  Third-party CRX downloaders
-Another option can be using a third-party CRX downloader available on the web. You'll just need to paste the extension URL from the chrome webstore.
+javascript:location.href='https://clients2.google.com/service/update2/crx?response=redirect&acceptformat=crx2,crx3&prodversion='+(navigator.appVersion.match(/Chrome\/(\S+)/)[1])+'&x=id%'+'3D'+(document.querySelector('a[href^="https://chrome.google.com/webstore/report/"]').pathname.match(/[^\/]+\/*$/)[0])+'%'+'26installsource%'+'3Dondemand%'+'26uc';
+
+```
+ then go to the extension page in Chrome Web Store and click on the bookmark to download.
+
+  
+
+* Third-party CRX downloaders: Another option can be using a third-party CRX downloader available on the web (e.g.: [chrome-extension-downloader.com](https://chrome-extension-downloader.com/)). You'll just need to paste the extension URL from the chrome webstore.
 
 ### Installing the CRX file
 
