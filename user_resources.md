@@ -16,6 +16,8 @@ Please submit a [PR to ungoogled-chromium-wiki](//github.com/ungoogled-software/
 
 *TODO: bulleted list of extensions, each with a short explanation of their purpose, benefits, and potential drawbacks*
 
+* [chromium-web-store](https://github.com/NeverDecaf/chromium-web-store) - Check and/or install updates to CRX-based extensions (i.e. not exclusively from the Chrome Web Store). It supports optional automatic updates. This is an extension-based implementation of [Issue #285](https://github.com/Eloston/ungoogled-chromium/issues/285).
+
 # Disable WebAssembly
 
 *(Suggested in [#578](//github.com/Eloston/ungoogled-chromium/issues/578))*

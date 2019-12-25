@@ -10,6 +10,8 @@ permalink: /faq
 
 Yes, but not via the Chrome Webstore interface. Instead, the URL used by the Webstore to download CRX files (Chrome/Chromium extension packages, used by all extensions in the Chrome Webstore) can be used.
 
+If you want a comprehensive solution that handles **installation and updates**, see the [chromium-web-store](https://github.com/NeverDecaf/chromium-web-store) extension.
+
 The following sections describe a method using built-in functionality.
 
 ### Downloading the CRX file
@@ -37,8 +39,6 @@ This URL can be accessed directly by CLI utilities like `curl` and `wget`, but i
 	```
 
 	Then, go to the extension page in the Chrome Web Store and click on the bookmark.
-
-* Third-party CRX downloaders: Another option can be using a third-party CRX downloader available on the web (e.g.: [chrome-extension-downloader.com](https://chrome-extension-downloader.com/)). You'll just need to paste the extension URL from the chrome webstore.
 
 ### Installing the CRX file
 
@@ -81,7 +81,9 @@ There are several methods to install CRX file:
 
 ## Will extensions auto-update?
 
-Not at this time. There is help needed to implement this feature in [Issue #285](https://github.com/Eloston/ungoogled-chromium/issues/285)
+You can use the [chromium-web-store](https://github.com/NeverDecaf/chromium-web-store) extension. It also allows updates from non-Chrome Web Store sources (based on the proposal in [Issue #285](https://github.com/Eloston/ungoogled-chromium/issues/285)).
+
+There is currently no built-in functionality for auto-updates. [Issue #285](https://github.com/Eloston/ungoogled-chromium/issues/285) proposes a solution.
 
 ## Do plugins work?
 
