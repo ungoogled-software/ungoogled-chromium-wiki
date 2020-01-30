@@ -79,6 +79,22 @@ There are several methods to install CRX file:
 
 *This FAQ answer was adapted and extended from [Inox browser](https://raw.githubusercontent.com/gcarq/inox-patchset/master/README.md).*
 
+4. Using the [CRX Viwer](https://github.com/Rob--W/crxviewer) (All systems)
+
+   Access the site of the tool https://robwu.nl/crxviewer/
+
+   Paste the extension URL or select the extension file (if you're already downloaded it)
+
+   Click in "Open in this viewer" and, in the next page, click on "Download" in the top left
+
+   After the download is finished, extract the file
+
+   In your extensions page `chrome://extensions/`, enable the "Developer mode", then click on "Load without compression",  select the folder from the file you unpacked in the previous step
+
+   Done
+
+   
+
 ## Will extensions auto-update?
 
 You can use the [chromium-web-store](https://github.com/NeverDecaf/chromium-web-store) extension. It also allows updates from non-Chrome Web Store sources (based on the proposal in [Issue #285](https://github.com/Eloston/ungoogled-chromium/issues/285)).
