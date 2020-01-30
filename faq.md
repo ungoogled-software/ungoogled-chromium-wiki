@@ -79,7 +79,7 @@ There are several methods to install CRX file:
 
 *This FAQ answer was adapted and extended from [Inox browser](https://raw.githubusercontent.com/gcarq/inox-patchset/master/README.md).*
 
-4. Using the [CRX Viwer](https://github.com/Rob--W/crxviewer) (All systems)
+4. **Using the [CRX Viwer](https://github.com/Rob--W/crxviewer) (All systems)**
 
    Access the site of the tool https://robwu.nl/crxviewer/
 
