@@ -48,7 +48,13 @@ There are several methods to install CRX file:
 
     Change the flag `chrome://flags/#extension-mime-request-handling` to `Always prompt for install`. Then when using the CRX URL from the omnibox, the custom search engine, or the Bookmarklet, the browser will prompt for installation.
 
-2. **Drag and drop**
+2. **The `file://` URI scheme**
+
+    Launch ungoogled-chromium with the path to the CRX file as a command-line argument (this creates and navigates to a `file://` URL automatically). Invoking an "open with" command (or equivalent name) on the CRX file should have the same effect.
+
+    Alternatively, navigate to the URL `file://PATH_TO_CRX` in the Omnibox, where `PATH_TO_CRX` is the *absolute path* to the CRX file using *forward slashes*. On Windows, you will need to add the drive letter. For examples and more details, see [file URI scheme on Wikipedia](https://en.wikipedia.org/wiki/File_URI_scheme).
+
+3. **Drag and drop**
 
     **NOTE**: There are certain circumstances where this method fails on KDE Plasma.
 
@@ -60,7 +66,7 @@ There are several methods to install CRX file:
     2. Open `chrome://extensions`.  Refresh if you just enabled Developer Mode.
     3. Drag-and-drop the CRX from a file browser into the page of the extensions tab. While dragging over the page, it should state to drop the file to install.
 
-3. **External Extension Descriptor (Linux systems only)**
+4. **External Extension Descriptor (Linux systems only)**
 
     This example assumes the CRX is downloaded as `/home/share/extension_1_0_0.crx`. Modify the path as necessary.
 
