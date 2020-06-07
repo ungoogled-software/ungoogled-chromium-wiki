@@ -194,7 +194,14 @@ As of version 67, `libwidevinecdmadapter.so` has been deprecated, and the Debian
 
 ### Windows
 
-TODO
+1. [Download the versions.txt file containing the list of Widevine versions](https://dl.google.com/widevine-cdm/versions.txt) 
+    * [Alternatively, you can use the Arch repo to get the latest version via pkgver, and see if it's available for next step](https://aur.archlinux.org/cgit/aur.git/tree/PKGBUILD?h=chromium-widevine)
+2. Use the following link to get the latest WideVineCDM and replace **CURRENT** by the latest version from the txt file https://dl.google.com/widevine-cdm/CURRENT-win-x64.zip (for Win 32 use ia32 instead of x64)
+3. Create a directory under your chromium installation (**NOT** in your AppData) call it WidevineCdm 
+4. Inside that create another folder called _plaform_specific. Also, inside the _platform_specific folder, create win_x64 directory (x64 -> x86 if Win32). 
+5. Place the manifest.json / LICENSE.txt under the WidevineCdm and place widevinecdm.dll/widevinecdm.sig under the win_x64
+
+
 
 ### macOS
 
