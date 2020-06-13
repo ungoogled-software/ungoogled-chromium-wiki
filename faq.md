@@ -201,8 +201,6 @@ As of version 67, `libwidevinecdmadapter.so` has been deprecated, and the Debian
 4. Inside that create another folder called _plaform_specific. Also, inside the _platform_specific folder, create win_x64 directory (x64 -> x86 if Win32). 
 5. Place the manifest.json / LICENSE.txt under the WidevineCdm and place widevinecdm.dll/widevinecdm.sig under the win_x64
 
-
-
 ### macOS
 
 This applies to version `55.0.2883.95`. In case you're using a different version, make sure to edit the command accordingly.
