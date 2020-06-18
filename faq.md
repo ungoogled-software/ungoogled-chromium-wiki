@@ -225,14 +225,16 @@ Google sign in uses a specific extension to access the security key's informatio
 
 There may be multiple causes:
 
-1. You set your preferences or the master preferences with `"audio_capture_enabled": false`.
-2. Your application uses Google's Speech API. This can be identified with an error message from Chromium such as:
+1. You set your preferences or the master preferences with `"audio_capture_enabled": false`. This was the default in Debian/Ubuntu up to and including 81.0.4044.138.
+2. Your application uses the built-in Google Speech API, which is disabled in ungoogled-chromium. This can be identified with an error message from Chromium such as:
 
 ```
 [11883:11886:0904/222052.856218:ERROR:trk_protocol_handler.cc(17)] Blocked URL in
                  TrkProtocolHandler:
 trk:184:https://www.9oo91e.qjz9zk/speech-api/full-duplex/v1/down?key=dummytoken&pair=52970E410A529E6C&output=pb
 ```
+
+3. Applications like Skype for Web parse the name of the built-in PDF viewing plugin from the JavaScript API `navigator.plugins` ([See Issue #1010 comment](https://github.com/Eloston/ungoogled-chromium/issues/1010#issuecomment-643740388)). On ungoogled-chromium 83.0.4103.106-1 and newer, go to `chrome://flags/#pdf-plugin-name` and set the name to "Google Chrome" or "Microsoft Edge".
 
 ## I have a problem building ungoogled-chromium
 
