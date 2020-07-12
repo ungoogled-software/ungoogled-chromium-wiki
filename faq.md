@@ -203,15 +203,13 @@ As of version 67, `libwidevinecdmadapter.so` has been deprecated, and the Debian
 
 ### macOS
 
-This applies to version `55.0.2883.95`. In case you're using a different version, make sure to edit the command accordingly.
-
 1. [Download the latest Google Chrome for macOS (.dmg file)](https://dl.google.com/chrome/mac/stable/GGRO/googlechrome.dmg)
-2. Put the downloaded `Google Chrome.app` and ungoogled-chromium's `Chromium.app` in the same folder
+2. Open `Google Chrome.app` at least once.
 3. Run the following command in the Terminal:
 
-`cp -R Google\ Chrome.app/Contents/Versions/55.0.2883.95/Google\ Chrome\ Framework.framework/Libraries/WidevineCdm Chromium.app/Contents/Versions/55.0.2883.95/Chromium\ Framework.framework/Libraries/`
+`cp -R ~/Library/Application\ Support/Google/Chrome/WidevineCDM ~/Library/Application\ Support/Chromium/WidevineCdm`
 
-Note that there is no slash after `WidevineCdm`.
+Note that there are no slashes after `WidevineCdm`.
 
 ## How do I get the Namespace Sandbox to work on Linux?
 
