@@ -234,6 +234,10 @@ trk:184:https://www.9oo91e.qjz9zk/speech-api/full-duplex/v1/down?key=dummytoken&
 
 3. Applications like Skype for Web parse the name of the built-in PDF viewing plugin from the JavaScript API `navigator.plugins` ([See Issue #1010 comment](https://github.com/Eloston/ungoogled-chromium/issues/1010#issuecomment-643740388)). On ungoogled-chromium 83.0.4103.106-1 and newer, go to `chrome://flags/#pdf-plugin-name` and set the name to "Google Chrome" or "Microsoft Edge".
 
+## How do I enable Chromecasting?
+
+Navigate to `chrome://flags/#cast-media-route-provider` and set the flag to Enabled. Then relaunch the browser as the page indicates.
+
 ## I have a problem building ungoogled-chromium
 
 See if the [Building FAQ](https://github.com/Eloston/ungoogled-chromium/blob/master/docs/building.md#building-faq) can address your problem. If not, check other resources in the [Support document](https://github.com/Eloston/ungoogled-chromium/blob/master/SUPPORT.md).
