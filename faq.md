@@ -6,6 +6,10 @@ weight: 2
 permalink: /faq
 ---
 
+## Why do I have to login to websites every time I open ungoogled-chromium?
+
+Under `chrome://settings/content/cookies` there is a setting `Clear cookies and site data when you quit Chromium`. In ungoogled-chromium this setting is set by default. Disabling this setting will prevent this behaviour.
+
 ## Can I install extensions or themes from the Chrome Webstore?
 
 Yes, but not via the Chrome Webstore interface. Instead, the URL used by the Webstore to download CRX files (Chrome/Chromium extension packages, used by all extensions in the Chrome Webstore) can be used.
