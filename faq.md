@@ -238,6 +238,16 @@ trk:184:https://www.9oo91e.qjz9zk/speech-api/full-duplex/v1/down?key=dummytoken&
 
 3. Applications like Skype for Web parse the name of the built-in PDF viewing plugin from the JavaScript API `navigator.plugins` ([See Issue #1010 comment](https://github.com/Eloston/ungoogled-chromium/issues/1010#issuecomment-643740388)). On ungoogled-chromium 83.0.4103.106-1 and newer, go to `chrome://flags/#pdf-plugin-name` and set the name to "Google Chrome" or "Microsoft Edge".
 
+## How do I fix the spell checker?
+
+1. Go to https://chromium.googlesource.com/chromium/deps/hunspell_dictionaries/+/master
+2. Find a bdic you want, click on it. You will see a mostly empty page aside from "X-byte binary file"
+3. On the bottom right corner, click "txt". For en-US-9-0.bdic, you will get a link https://chromium.googlesource.com/chromium/deps/hunspell_dictionaries/+/master/en-US-9-0.bdic?format=TEXT
+4. This is a base64-encoded file that needs to be decoded.
+    * On Linux, simply run `base64 -d en-US-9-0.bdic > ~/.config/chromium/Dictionaries/en-US-9-0.bdic` (assuming you want the dictionary to be in the default profile)
+	* On Windows, you can use 7-zip to open `en-US-9-0.bdic` and "extract" a decoded `en-US-9-0.bdic` into `%LOCALAPPDATA%\Chromium\User Data\Dictionaries`
+5. Toggle spell check in `chrome://settings/languages`, or restart the browser for the dictionaries to take effect.
+
 ## How do I enable Chromecasting?
 
 Navigate to `chrome://flags/#cast-media-route-provider` and set the flag to Enabled. Then relaunch the browser as the page indicates.
