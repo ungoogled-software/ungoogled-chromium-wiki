@@ -210,10 +210,10 @@ As of version 67, `libwidevinecdmadapter.so` has been deprecated, and the Debian
 ### macOS
 
 1. [Download the latest Google Chrome for macOS (.dmg file)](https://dl.google.com/chrome/mac/stable/GGRO/googlechrome.dmg)
-2. Open `Google Chrome.app` at least once.
+2. Mount the downloaded .dmg file
 3. Run the following command in the Terminal:
 
-`cp -R ~/Library/Application\ Support/Google/Chrome/WidevineCDM ~/Library/Application\ Support/Chromium/WidevineCdm`
+`cp -R /Volumes/Google\ Chrome/Google\ Chrome.app/Contents/Frameworks/Google\ Chrome\ Framework.framework/Libraries/WidevineCdm /Applications/Chromium.app/Contents/Frameworks/Chromium\ Framework.framework/Libraries/WidevineCdm`
 
 Note that there are no slashes after `WidevineCdm`.
 
