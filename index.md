@@ -7,7 +7,7 @@ disable_toc: true
 
 Welcome to the ungoogled-chromium wiki!
 
-If you are new to ungoogled-chromium, see [the project's README](https://github.com/Eloston/ungoogled-chromium/blob/master/README.md).
+If you are new to ungoogled-chromium, see [the project's README](https://github.com/ungoogled-software/ungoogled-chromium/blob/master/README.md).
 
 Building instructions and development notes are linked in the above README.
 

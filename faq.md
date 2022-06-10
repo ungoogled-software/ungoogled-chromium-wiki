@@ -34,7 +34,7 @@ For example, `cjpalhdlnbpafiamejdnhcphjbkeiagm` is the extension id of uBlock Or
 This URL can be accessed directly by CLI utilities like `curl` and `wget`, but it can also be accessed in two other ways:
 
 * Custom search engine: Create a new entry in `chrome://settings/searchEngines`, using the template CRX URL as the search URL above after replacing `[EXTENSION_ID]` with `%s`. Then, set `chrome://flags/#extension-mime-request-handling` to `Download as regular file`.
-* [Bookmarklet](https://en.wikipedia.org/wiki/Bookmarklet) (proposed in [Issue #869](https://github.com/Eloston/ungoogled-chromium/issues/869)):
+* [Bookmarklet](https://en.wikipedia.org/wiki/Bookmarklet) (proposed in [Issue #869](https://github.com/ungoogled-software/ungoogled-chromium/issues/869)):
     * Go to [chrome://bookmarks/](chrome://bookmarks/)
     * Right click anywhere to select 'Add new Bookmark'. Copy the following into the URL field:
 
@@ -62,7 +62,7 @@ There are several methods to install CRX file:
 
     **NOTE**: There are certain circumstances where this method fails on KDE Plasma.
 
-    **NOTE for Chromium 67 and newer**: If the Material Design page is used (which has been default before 67), "Developer mode" of `chrome://extensions/` (a switch at the top right corner) must be enabled for drag and drop to function. (Discovered in [#423](https://github.com/Eloston/ungoogled-chromium/issues/423))
+    **NOTE for Chromium 67 and newer**: If the Material Design page is used (which has been default before 67), "Developer mode" of `chrome://extensions/` (a switch at the top right corner) must be enabled for drag and drop to function. (Discovered in [#423](https://github.com/ungoogled-software/ungoogled-chromium/issues/423))
 
     Steps:
 
@@ -91,9 +91,9 @@ There are several methods to install CRX file:
 
 ## Will extensions auto-update?
 
-You can use the [chromium-web-store](https://github.com/NeverDecaf/chromium-web-store) extension. It also allows updates from non-Chrome Web Store sources (based on the proposal in [Issue #285](https://github.com/Eloston/ungoogled-chromium/issues/285)).
+You can use the [chromium-web-store](https://github.com/NeverDecaf/chromium-web-store) extension. It also allows updates from non-Chrome Web Store sources (based on the proposal in [Issue #285](https://github.com/ungoogled-software/ungoogled-chromium/issues/285)).
 
-There is currently no built-in functionality for auto-updates. [Issue #285](https://github.com/Eloston/ungoogled-chromium/issues/285) proposes a solution.
+There is currently no built-in functionality for auto-updates. [Issue #285](https://github.com/ungoogled-software/ungoogled-chromium/issues/285) proposes a solution.
 
 ## Do plugins work?
 
@@ -231,7 +231,7 @@ There may be multiple causes:
 trk:184:https://www.9oo91e.qjz9zk/speech-api/full-duplex/v1/down?key=dummytoken&pair=52970E410A529E6C&output=pb
 ```
 
-3. Applications like Skype for Web parse the name of the built-in PDF viewing plugin from the JavaScript API `navigator.plugins` ([See Issue #1010 comment](https://github.com/Eloston/ungoogled-chromium/issues/1010#issuecomment-643740388)). On ungoogled-chromium 83.0.4103.106-1 and newer, go to `chrome://flags/#pdf-plugin-name` and set the name to "Google Chrome" or "Microsoft Edge".
+3. Applications like Skype for Web parse the name of the built-in PDF viewing plugin from the JavaScript API `navigator.plugins` ([See Issue #1010 comment](https://github.com/ungoogled-software/ungoogled-chromium/issues/1010#issuecomment-643740388)). On ungoogled-chromium 83.0.4103.106-1 and newer, go to `chrome://flags/#pdf-plugin-name` and set the name to "Google Chrome" or "Microsoft Edge".
 
 ## How do I fix the spell checker?
 
@@ -249,4 +249,4 @@ Navigate to `chrome://flags/#cast-media-route-provider` and set the flag to Enab
 
 ## I have a problem building ungoogled-chromium
 
-See if the [Building FAQ](https://github.com/Eloston/ungoogled-chromium/blob/master/docs/building.md#building-faq) can address your problem. If not, check other resources in the [Support document](https://github.com/Eloston/ungoogled-chromium/blob/master/SUPPORT.md).
+See if the [Building FAQ](https://github.com/ungoogled-software/ungoogled-chromium/blob/master/docs/building.md#building-faq) can address your problem. If not, check other resources in the [Support document](https://github.com/ungoogled-software/ungoogled-chromium/blob/master/SUPPORT.md).

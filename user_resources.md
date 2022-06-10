@@ -16,13 +16,13 @@ Please submit a [PR to ungoogled-chromium-wiki](//github.com/ungoogled-software/
 
 *TODO: bulleted list of extensions, each with a short explanation of their purpose, benefits, and potential drawbacks*
 
-* [chromium-web-store](https://github.com/NeverDecaf/chromium-web-store) - Check and/or install updates to CRX-based extensions (i.e. not exclusively from the Chrome Web Store). It supports optional automatic updates. This is an extension-based implementation of [Issue #285](https://github.com/Eloston/ungoogled-chromium/issues/285).
+* [chromium-web-store](https://github.com/NeverDecaf/chromium-web-store) - Check and/or install updates to CRX-based extensions (i.e. not exclusively from the Chrome Web Store). It supports optional automatic updates. This is an extension-based implementation of [Issue #285](https://github.com/ungoogled-software/ungoogled-chromium/issues/285).
 
 # Disable WebAssembly
 
-*(Suggested in [#578](//github.com/Eloston/ungoogled-chromium/issues/578))*
+*(Suggested in [#578](//github.com/ungoogled-software/ungoogled-chromium/issues/578))*
 
-Like JavaScript, WebAssembly is another potential attack vector. See [#578](//github.com/Eloston/ungoogled-chromium/issues/578) for the details of exploiting WebAssembly.
+Like JavaScript, WebAssembly is another potential attack vector. See [#578](//github.com/ungoogled-software/ungoogled-chromium/issues/578) for the details of exploiting WebAssembly.
 
 See [stevenspringett/disable-webassembly](//github.com/stevespringett/disable-webassembly) for instructions on disabling WebAssembly.
 

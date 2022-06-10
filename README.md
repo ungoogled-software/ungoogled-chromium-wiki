@@ -1,6 +1,6 @@
 # ungoogled-chromium-wiki
 
-Wiki for [ungoogled-chromium](https://github.com/Eloston/ungoogled-chromium).
+Wiki for [ungoogled-chromium](https://github.com/ungoogled-software/ungoogled-chromium).
 
 [View the Wiki here](https://ungoogled-software.github.io/ungoogled-chromium-wiki/).
 
