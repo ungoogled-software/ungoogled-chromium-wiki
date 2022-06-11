@@ -226,7 +226,7 @@ trk:184:https://www.9oo91e.qjz9zk/speech-api/full-duplex/v1/down?key=dummytoken&
 3. On the bottom right corner, click "txt". For en-US-9-0.bdic, you will get a link https://chromium.googlesource.com/chromium/deps/hunspell_dictionaries/+/master/en-US-9-0.bdic?format=TEXT
 4. This is a base64-encoded file that needs to be decoded.
     * On Linux, simply run `base64 -d en-US-9-0.bdic > ~/.config/chromium/Dictionaries/en-US-9-0.bdic` (assuming you want the dictionary to be in the default profile)
-	* On Windows, you can use 7-zip to open `en-US-9-0.bdic` and "extract" a decoded `en-US-9-0.bdic` into `%LOCALAPPDATA%\Chromium\User Data\Dictionaries`
+	* On Windows, run `mkdir %LOCALAPPDATA%\Chromium\Application\Dictionaries` and `certutil.exe -decode en-US-9-0.bdic %LOCALAPPDATA%\Chromium\Application\Dictionaries\en-US-9-0.bdic` in cmd
 5. Toggle spell check in `chrome://settings/languages`, or restart the browser for the dictionaries to take effect.
 
 ## How do I enable Chromecasting?
