@@ -202,7 +202,7 @@ Enable the kernel option `unprivileged_userns_clone`
 
 ## How to get FIDO U2F security keys to work in Google sign in?
 
-Google sign in uses a specific extension to access the security key's information. You'll need to install [this extension](https://chrome.google.com/webstore/detail/gnubbyd/beknehfpfkghjoafdifaflglpjkojoco) to make this function. After installation you might need to restart your computer to make it work.
+Google's sign in currently relies on an internal `googleLegacyAppIdSupport` extension as the previous non standard api [has been removed](https://groups.google.com/a/chromium.org/g/blink-dev/c/xHC3AtU_65A/m/yg20tsVFBAAJ). ungoogled-chromium breaks this extension which makes sign in not possible at this moment. Ideally Google will move to native WebAuthn soon.
 
 ## Why is my microphone not working?
 
