@@ -18,6 +18,12 @@ Please submit a [PR to ungoogled-chromium-wiki](//github.com/ungoogled-software/
 
 * [chromium-web-store](https://github.com/NeverDecaf/chromium-web-store) - Check and/or install updates to CRX-based extensions (i.e. not exclusively from the Chrome Web Store). It supports optional automatic updates. This is an extension-based implementation of [Issue #285](https://github.com/ungoogled-software/ungoogled-chromium/issues/285).
 
+# Disable JIT
+
+The [JIT](https://en.wikipedia.org/wiki/Just-in-time_compilation) optimization of JavaScript is a [known attack vector](https://microsoftedge.github.io/edgevr/posts/Super-Duper-Secure-Mode/). It can be disabled with the launch flag `--js-flags='--jitless'`.
+
+JavaScript will still run with JIT disabled, but websites may be slower, especially script-heavy apps like Google Maps. Disabling JIT also disables WebAssembly.
+
 # Disable WebAssembly
 
 *(Suggested in [#578](//github.com/ungoogled-software/ungoogled-chromium/issues/578))*
