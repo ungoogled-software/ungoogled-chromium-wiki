@@ -188,7 +188,7 @@ As of version 67, `libwidevinecdmadapter.so` has been deprecated, and the Debian
 
 ### macOS
 
-1. [Download the latest Google Chrome for macOS (.dmg file)](https://dl.google.com/chrome/mac/stable/GGRO/googlechrome.dmg)
+1. [Download the latest Google Chrome for macOS (.dmg file)](https://dl.google.com/chrome/mac/universal/stable/GGRO/googlechrome.dmg)
 2. Mount the downloaded .dmg file
 3. Run the following command in the Terminal:
 
