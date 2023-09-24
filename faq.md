@@ -236,7 +236,7 @@ Navigate to `chrome://flags/#cast-media-route-provider` and set the flag to Enab
 
 ## Why is my WebRTC applications is having issues?
 WebRTC can leak your actual IP address even when using a VPN. Ungoogled Chromium keep it off by default, but it can affect some web application to function. To change it-
-1. Navigate to `chrome://flags/#webrtc-ip-handling-policy`</li>
+1. Navigate to `chrome://flags/#webrtc-ip-handling-policy`
 2. Select the desired policy from the dropdown.
 3. Restart the browser to apply the changes.
 
