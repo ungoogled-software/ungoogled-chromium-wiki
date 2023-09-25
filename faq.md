@@ -234,8 +234,8 @@ trk:184:https://www.9oo91e.qjz9zk/speech-api/full-duplex/v1/down?key=dummytoken&
 
 Navigate to `chrome://flags/#cast-media-route-provider` and set the flag to Enabled. Then relaunch the browser as the page indicates.
 
-## Why is my WebRTC applications is having issues?
-WebRTC can leak your actual IP address even when using a VPN. Ungoogled Chromium keep it off by default, but it can affect some web application to function. To change it-
+## How do I fix WebRTC?
+WebRTC can leak your actual IP address even when using a VPN. In ungoogled-chromium WebRTC is limited by default, which can affect some web applications. This could be changed as follows:
 1. Navigate to `chrome://flags/#webrtc-ip-handling-policy`
 2. Select the desired policy from the dropdown.
 3. Restart the browser to apply the changes.
