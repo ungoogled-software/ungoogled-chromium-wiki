@@ -8,7 +8,7 @@ permalink: /faq
 
 ## Why do I have to login to websites every time I open ungoogled-chromium?
 
-Under `chrome://settings/cookies` there is a setting `Clear cookies and site data when you close all windows`. In ungoogled-chromium this setting is set by default. Disabling this setting will prevent this behaviour.
+Under `chrome://settings/content/siteData` there is a setting `Delete data sites have saved to your device when you close all windows`. In ungoogled-chromium this is selected by default. Switch this setting to "Allow sites to save data on your device" will prevent this behaviour.
 
 ## Can I install extensions or themes from the Chrome Webstore?
 
