@@ -243,3 +243,84 @@ WebRTC can leak your actual IP address even when using a VPN. In ungoogled-chrom
 ## I have a problem building ungoogled-chromium
 
 See if the [Building FAQ](https://github.com/ungoogled-software/ungoogled-chromium/blob/master/docs/building.md#building-faq) can address your problem. If not, check other resources in the [Support document](https://github.com/ungoogled-software/ungoogled-chromium/blob/master/SUPPORT.md).
+
+<br/>
+
+## Flatpak
+
+### Custom Profile Locations
+
+If your browser profiles are located in a custom directory,  
+ensure the Ungoogled Chromium flatpak has access to it.
+
+<br/>
+
+#### Via Flatseal
+
+You can use **[Flatseal]** to graphically give the  
+flatpak access to your the custom directory. 
+
+1. In Flatseal open the settings for `ungoogled-chromium`
+
+2. Scroll down to the section called `Filesystem`
+
+3. Under `Other files` add a new entry with your path
+
+![Flatseal-Profile-Location](https://github.com/PhoneDroid/ungoogled-chromium-wiki/assets/73050054/a543c0d0-840b-4d02-ad17-dcd75249c69d)
+
+<br/>
+
+#### Via Command
+
+Check the active overrides of the flatpak with:
+
+```sh
+flatpak override \
+    --user       \
+    --show       \
+    io.github.ungoogled_software.ungoogled_chromium
+```
+
+Allow a filesystem path to be accessed with:
+
+```sh
+flatpak override        \
+    --user              \
+    --filesystem=<path> \
+    io.github.ungoogled_software.ungoogled_chromium
+```
+
+```sh
+flatpak override                          \
+    --user                                \
+    --filesystem=/media/user/Drive/Folder \
+    io.github.ungoogled_software.ungoogled_chromium
+```
+
+<br/>
+
+#### Via Config File
+
+1. In the editor of your choice, adjust the following flatpak override config:
+
+  ```
+  ~/.local/share/flatpak/overrides/io.github.ungoogled_software.ungoogled_chromium 
+  ```
+
+2. If it's empty add the following:
+
+  ```ini
+  [Context]
+  filesystems=<Directories>
+  ```
+
+3. Replace `<Directories>` or add to the existing list by joining the paths with `;`
+
+  ```ini
+  [Context]
+  filesystems=/media/user/DriveA/MyChromiumProfiles;/media/user/DriveB/OtherPath
+  ```
+
+
+
+[Flatseal]: https://flathub.org/apps/com.github.tchx84.Flatseal
