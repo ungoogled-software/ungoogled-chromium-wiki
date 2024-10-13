@@ -39,7 +39,7 @@ This URL can be accessed directly by CLI utilities like `curl` and `wget`, but i
     * Right click anywhere to select 'Add new Bookmark'. Copy the following into the URL field:
 
 	```javascript
-	javascript:location.href='https://clients2.google.com/service/update2/crx?response=redirect&acceptformat=crx2,crx3&prodversion='+(navigator.appVersion.match(/Chrome\/(\S+)/)[1])+'&x=id%'+'3D'+(document.querySelector('a[href^="./detail"]').pathname.match(/[^\/]+\/*$/)[0])+'%'+'26installsource%'+'3Dondemand%'+'26uc';
+	javascript:location.href='https://clients2.google.com/service/update2/crx?response=redirect&acceptformat=crx2,crx3&prodversion='+(navigator.appVersion.match(/Chrome\/(\S+)/)[1])+'&x=id%'+'3D'+(document.querySelector('a[href^="./detail"][href$="/report"]').pathname.match(/([^\/]+)\/report$/)[1])+'%'+'26installsource%'+'3Dondemand%'+'26uc';
 	```
 
 	Then, go to the extension page in the Chrome Web Store and click on the bookmark.
