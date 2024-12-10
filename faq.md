@@ -113,6 +113,12 @@ See [this Wikipedia article](//en.wikipedia.org/wiki/Google_Safe_Browsing) for i
 
 Safe Browsing communicates with Google servers in order to download the blacklists. If you are looking for a feature like Safe Browsing, I recommend uBlock Origin or uMatrix.
 
+## Why can't I change settings because of a message like "This setting is managed by your administrator" or "This setting is disabled on managed browsers"
+
+Among other, this happens often with the "Use secure DNS" setting.
+
+The settings can be modified via a system-wide configuration. On Linux that is likely in directory `/etc/chromium/policies/managed`, file `policies.json`.
+
 ## How do I install Widevine CDM?
 
 These instructions are platform-specific.
