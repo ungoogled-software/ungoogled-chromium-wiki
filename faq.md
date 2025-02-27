@@ -134,7 +134,7 @@ These instructions are platform-specific.
 
 In ungoogled-chromium-debian, you can install Widevine DRM to additional locations. See `/usr/share/doc/ungoogled-chromium/README.Debian` for more details.
 
-Here is a script that can automate this. It requires Debian because of `dpkg-deb`, but it can be modified to work on any sytsem:
+Here is a script that can automate this. It requires Debian because of `dpkg-deb`, but it can be modified to work on any system:
 
 ```sh
 #!/bin/bash -eux
