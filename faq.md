@@ -249,3 +249,11 @@ WebRTC can leak your actual IP address even when using a VPN. In ungoogled-chrom
 ## I have a problem building ungoogled-chromium
 
 See if the [Building FAQ](https://github.com/ungoogled-software/ungoogled-chromium/blob/master/docs/building.md#building-faq) can address your problem. If not, check other resources in the [Support document](https://github.com/ungoogled-software/ungoogled-chromium/blob/master/SUPPORT.md).
+
+## Why is some user data lost after moving to a different Windows installation?
+
+The Windows version of Chromium encrypts parts of the user data, e.g. some settings, extensions, passwords, and cookies, using a local key, which is tied to the specific OS installation. This means that the encrypted parts are lost if you decide to move your data to a different Windows system. The only way to prevent the encryption from happening is to run the browser with `--disable-machine-id --disable-encryption` flags added via the command line. You must make sure that the flags are added right at the very beginning before the user data folder has even been created. Otherwise, if the user data folder already exists, they won't have any effect, because at that point the data will have already been encrypted.
+
+Note that you can also enable the same options under [chrome://flags/#disable-machine-id](chrome://flags/#disable-machine-id) and [chrome://flags/#disable-encryption](chrome://flags/#disable-encryption). While you cannot enable them in advance (and thus prevent the encryption from taking place), what you can do is to start the browser adding the command line flags first, enable the two options next, and then drop the command line flags as no longer needed.
+
+Furthermore, as we cannot guarantee that things will stay this way forever (e.g. due to future code changes in Chromium), please always verify that encryption has indeed been disabled and your browser data does work correctly when moved to another Windows installation.
