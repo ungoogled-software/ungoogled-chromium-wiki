@@ -130,7 +130,9 @@ These instructions are platform-specific.
 1. [Download the latest Google Chrome for Linux (.deb file)](https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb)
     * [Use this link for the latest unstable version](https://dl.google.com/linux/direct/google-chrome-unstable_current_amd64.deb)
 2. Inside `data.tar.xz`, extract `./opt/google/chrome/WidevineCdm`
-3. Move `WidevineCdm` to `/usr/lib/chromium`, where all other Chromium files should be. For portable or custom-built versions, it should be placed alongside the other Chromium files.
+3. Move the contents of `WidevineCdm` to `~/.config/chromium/WidevineCdm/4.10.3050.0`, where `4.10.3050.0` is the widevine version as reported in its manifest.json file. For portable or custom-built versions, it should be placed alongside the other Chromium files.
+4. Add execution permissions to `libwidevinecdm.so`
+5. Add `--enable-widevine` flag to unggogled-chromium execution args
 
 In ungoogled-chromium-debian, you can install Widevine DRM to additional locations. See `/usr/share/doc/ungoogled-chromium/README.Debian` for more details.
 
@@ -138,49 +140,40 @@ Here is a script that can automate this. It requires Debian because of `dpkg-deb
 
 ```sh
 #!/bin/bash -eux
-# Replace with current Chromium version
-_chrome_ver=79.0.3945.79
-
-# Debian's Chromium has a patch to read libwidevinecdm.so in ~/.local/lib
-# However, in 79 and newer, you must use the WidevineCdm directory instead of
-# the libwidevinecdm.so file
-_target_dir=~/.local/lib/WidevineCdm
-_move_type=user_directory
-# To have it accessible by all users, uncomment the below instead
-#_target_dir=/usr/lib/chromium/WidevineCdm
-#_move_type=system_directory
 
 mkdir -p /tmp/chromium_widevine
 pushd /tmp/chromium_widevine
 
-# Download deb, which has corresponding Widevine version
-# Support resuming partially downloaded (or skipping re-download) with -c flag
-wget -c https://dl.google.com/linux/deb/pool/main/g/google-chrome-stable/google-chrome-stable_${_chrome_ver}-1_amd64.deb
-# Use below link for unstable Chrome versions
-#wget -c https://dl.google.com/linux/deb/pool/main/g/google-chrome-unstable/google-chrome-unstable_${_chrome_ver}-1_amd64.deb
+_base_url="https://dl.google.com/linux/chrome/deb"
+_packages_url="$_base_url/dists/stable/main/binary-amd64/Packages"
+_file_path=$(wget -qO- "$_packages_url" | awk '/^Package: google-chrome-stable/{flag=1} flag && /^Filename:/{print $2; exit}')
+if [ -z "$_file_path" ]; then
+    echo "Error: can't get latest Chrome version."
+    exit 1
+fi
+_download_url="$_base_url/$_file_path"
+_deb_file=$(basename "$_file_path")
+wget --show-progress -O "$_deb_file" "$DOWNLOAD_URL"
+
+# Correct path, at least in Ubuntu 24.04
+_target_dir=~/.config/chromium/WidevineCdm
+# To have it accessible by all users, uncomment the below instead
+#_target_dir=/usr/lib/chromium/WidevineCdm
+#_move_type=system_directory
 
 # Unpack deb
 rm -r unpack_deb || true
 mkdir unpack_deb
-dpkg-deb -R google-chrome-stable_${_chrome_ver}-1_amd64.deb unpack_deb
+dpkg-deb -R "$_deb_file" unpack_deb
 
-if [[ "$_move_type" == 'shared_obj' ]]; then
-	# Move libwidevinecdm.so to target dir
-	mkdir -p $_target_dir
-	mv unpack_deb/opt/google/chrome/WidevineCdm/_platform_specific/linux_x64/libwidevinecdm.so $_target_dir
-elif [[ "$_move_type" == 'user_directory' ]]; then
-	# Move WidevineCdm to target dir owned by current user
-	rm -r $_target_dir || true
-	mv unpack_deb/opt/google/chrome/WidevineCdm $_target_dir
-elif [[ "$_move_type" == 'system_directory' ]]; then
-	# Move WidevineCdm to target dir in root-owned location
-	sudo rm -r $_target_dir || true
-	sudo mv unpack_deb/opt/google/chrome/WidevineCdm $_target_dir
-	sudo chown -R root:root $_target_dir
-else
-	printf 'ERROR: Unknown value for $_move_type: %s\n' "$_move_type"
-	exit 1
-fi
+
+# Move WidevineCdm to target dir owned by current user
+rm -r $_target_dir || true
+_widevine_version=$(jq -r '.version' unpack_deb/opt/google/chrome/WidevineCdm/manifest.json)
+mkdir -p $_target_dir/$_widevine_version
+mv unpack_deb/opt/google/chrome/WidevineCdm/* $_target_dir/$_widevine_version/
+chmod 755 $_target_dir/$_widevine_version/_platform_specific/linux_x64/libwidevinecdm.so
+
 
 popd
 rm -r /tmp/chromium_widevine
