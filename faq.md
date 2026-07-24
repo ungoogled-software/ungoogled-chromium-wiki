@@ -153,7 +153,7 @@ if [ -z "$_file_path" ]; then
 fi
 _download_url="$_base_url/$_file_path"
 _deb_file=$(basename "$_file_path")
-wget --show-progress -O "$_deb_file" "$DOWNLOAD_URL"
+wget --show-progress -O "$_deb_file" "$_download_url"
 
 # Correct path, at least in Ubuntu 24.04
 _target_dir=~/.config/chromium/WidevineCdm
