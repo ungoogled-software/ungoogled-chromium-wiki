@@ -132,7 +132,7 @@ These instructions are platform-specific.
 2. Inside `data.tar.xz`, extract `./opt/google/chrome/WidevineCdm`
 3. Move the contents of `WidevineCdm` to `~/.config/chromium/WidevineCdm/4.10.3050.0`, where `4.10.3050.0` is the widevine version as reported in its manifest.json file. For portable or custom-built versions, it should be placed alongside the other Chromium files.
 4. Add execution permissions to `libwidevinecdm.so`
-5. Add `--enable-widevine` flag to unggogled-chromium execution args
+5. Add `--enable-widevine` flag to ungoogled-chromium execution args
 
 In ungoogled-chromium-debian, you can install Widevine DRM to additional locations. See `/usr/share/doc/ungoogled-chromium/README.Debian` for more details.
 
