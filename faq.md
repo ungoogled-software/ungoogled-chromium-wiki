@@ -183,7 +183,13 @@ As of version 67, `libwidevinecdmadapter.so` has been deprecated, and the Debian
 
 ### Windows
 
-[Visit this page](https://chromium.woolyss.com/#widevine), and expand section "How to install the Widevine CDM plugin?"
+1. Install [Google Chrome](https://www.google.com/chrome/), or use an existing installation.
+2. Copy the `WidevineCdm` folder from `C:\Program Files\Google\Chrome\Application\<Chrome version>\` (or from `%LOCALAPPDATA%\Google\Chrome\Application\<Chrome version>\` if Chrome is installed for your user only).
+3. Open `manifest.json` in the copied folder and note its `version`, e.g. `4.10.2934.0`.
+4. Create the folder `%LOCALAPPDATA%\Chromium\User Data\WidevineCdm\<Widevine version>\`, e.g. `%LOCALAPPDATA%\Chromium\User Data\WidevineCdm\4.10.2934.0\`, and move the contents of the copied `WidevineCdm` folder into it, so that `manifest.json` is directly inside the version folder. Without the version folder, Widevine is not found. If you run ungoogled-chromium with `--user-data-dir`, use that folder instead of `%LOCALAPPDATA%\Chromium\User Data`.
+5. Restart ungoogled-chromium.
+
+The copy is not updated automatically. If DRM-protected video stops working, repeat these steps with a newer Chrome. Some streaming services may refuse to play anyway, see [ungoogled-chromium-windows#247](https://github.com/ungoogled-software/ungoogled-chromium-windows/issues/247).
 
 ### macOS
 
